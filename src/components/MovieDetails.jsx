@@ -53,7 +53,7 @@ export const MovieDetails = () => {
           <strong>Release Date: </strong> {movie.release_date}
         </p>
         <p>
-          <stron>Votes: </stron>
+          <strong>Votes: </strong>
           {movie.vote_count}
         </p>
         <p>
