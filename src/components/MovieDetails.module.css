@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Staatliches&display=swap');
+
+.detailsContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.col {
+    max-width: 400px;
+    margin: 15px;
+    height: auto;
+}
+
+.detailsImage {
+    border-radius: 10px;
+}
+
+.movieDetails {
+    font-size: 1.1rem;
+    font-family: 'Roboto', sans-serif;
+}

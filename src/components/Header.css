@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
+.title {
+    text-align: center;
+    font-size: 4rem;
+    text-decoration: none;
+    color: white;
+    font-family: 'Staatliches';
+    text-shadow: 5px 5px 5px rgb(68, 68, 176)
+}

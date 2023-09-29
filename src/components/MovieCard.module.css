@@ -1,0 +1,23 @@
+.MovieCard {
+    list-style: none;
+    font-size: 1rem;
+    text-align: center;
+    font-family: 'Nunito Sans';
+}
+
+.MovieCardImage {
+    border-radius: 5px;
+    background-color: azure;
+    transition: 0.2s;
+}
+
+.MovieCardImage:hover {
+    transform: scale(1.05, 1.05);
+}
+
+@media (min-width: 560px) {
+    .MovieCardImage {
+        width: 100%;
+        height: auto;
+    }
+}
