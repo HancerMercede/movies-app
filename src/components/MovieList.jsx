@@ -4,17 +4,15 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { GetRequest } from "../utils/httpRequest";
 import { Loader } from "../utils/Loader";
-import { useQuery } from "../hooks/useQuery";
 import { Empty } from "../components/Empty";
+import Proptypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-export const MovieList = () => {
+export const MovieList = ({ search }) => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [hasMore, sethasMore] = useState(true);
-  const query = useQuery();
-  const search = query.get("search");
 
   useEffect(() => {
     setIsLoading(true);
@@ -49,4 +47,8 @@ export const MovieList = () => {
       </InfiniteScroll>
     </>
   );
+};
+
+MovieList.propTypes = {
+  search: Proptypes.string,
 };

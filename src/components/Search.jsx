@@ -4,15 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { useQuery } from "../hooks/useQuery";
 
 export const Search = () => {
-  // const [searchText, setSearchText] = useState("");
-  const history = useNavigate();
-
   const query = useQuery();
   const search = query.get("search");
 
-  // useEffect(() => {
-  //   setSearchText(search || "");
-  // }, [search]);
+  const history = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,7 +21,6 @@ export const Search = () => {
           type="text"
           placeholder="Search movies..."
           value={search ?? ""}
-          autoFocus
           onChange={(e) => {
             const value = e.target.value;
             history("/?search=" + value);
