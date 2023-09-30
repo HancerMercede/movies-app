@@ -15,7 +15,9 @@ export const MovieCard = ({ movie }) => {
           className={styles.MovieCardImage}
         />
       </Link>
-      <div>{movie.title}</div>
+      <div>
+        <strong>{movie.title}</strong>
+      </div>
     </li>
   );
 };

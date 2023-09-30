@@ -1,23 +1,21 @@
 import styles from "./Search.module.css";
 import { SearchIcon } from "../utils/SearchIcon";
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "../hooks/useQuery";
 
 export const Search = () => {
-  const [searchText, setSearchText] = useState("");
+  // const [searchText, setSearchText] = useState("");
   const history = useNavigate();
 
   const query = useQuery();
   const search = query.get("search");
 
-  useEffect(() => {
-    setSearchText(search || "");
-  }, [search]);
+  // useEffect(() => {
+  //   setSearchText(search || "");
+  // }, [search]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    history("/?search=" + searchText);
   };
 
   return (
@@ -27,8 +25,12 @@ export const Search = () => {
           className={styles.searchInput}
           type="text"
           placeholder="Search movies..."
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
+          value={search ?? ""}
+          autoFocus
+          onChange={(e) => {
+            const value = e.target.value;
+            history("/?search=" + value);
+          }}
         />
         <button className={styles.searchButton} type="submit">
           <SearchIcon />
