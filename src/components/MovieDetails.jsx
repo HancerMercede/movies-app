@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styles from "../components/MovieDetails.module.css";
 import { useParams } from "react-router-dom";
 import { GetRequest } from "../utils/httpRequest";
-import { Loader } from "../utils/loader";
+import { Loader } from "../utils/Loader.jsx";
 
 export const MovieDetails = () => {
   const { id } = useParams();

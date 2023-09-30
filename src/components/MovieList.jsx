@@ -3,7 +3,7 @@ import "../components/MovieList.css";
 import { useState } from "react";
 import { useEffect } from "react";
 import { GetRequest } from "../utils/httpRequest";
-import { Loader } from "../utils/loader";
+import { Loader } from "../utils/Loader";
 import { useQuery } from "../hooks/useQuery";
 import InfiniteScroll from "react-infinite-scroll-component";
 
@@ -34,7 +34,7 @@ export const MovieList = () => {
         dataLength={movies.length}
         next={() => setPage((prevPage) => prevPage + 1)}
         hasMore={true}
-        loader={isLoading}
+        loader={<Loader />}
       >
         <div>
           <ul className="container">
