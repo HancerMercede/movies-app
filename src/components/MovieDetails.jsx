@@ -1,24 +1,29 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import styles from "../components/MovieDetails.module.css";
 import { useParams } from "react-router-dom";
 import { GetRequest } from "../utils/httpRequest";
 import { Loader } from "../utils/Loader.jsx";
 import { getMovieImg } from "../utils/getMovieImg";
+import { useQuery } from "react-query";
 
 export const MovieDetails = () => {
   const { id } = useParams();
-  const [movie, setMovie] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    setIsLoading(true);
+  const { data: movie, isLoading } = useQuery(
+    ["movieId", id],
     GetRequest(`/movie/${id}`)
-      .then((data) => {
-        setMovie(data);
-        setIsLoading(false);
-      })
-      .catch((err) => console.log(err.message));
-  }, [id]);
+  );
+  // const [movie, setMovie] = useState(null);
+  // const [isLoading, setIsLoading] = useState(true);
+
+  // useEffect(() => {
+  //   setIsLoading(true);
+  //   GetRequest(`/movie/${id}`)
+  //     .then((data) => {
+  //       setMovie(data);
+  //       setIsLoading(false);
+  //     })
+  //     .catch((err) => console.log(err.message));
+  // }, [id]);
 
   if (isLoading) return <Loader />;
 

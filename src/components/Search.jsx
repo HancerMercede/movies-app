@@ -20,6 +20,7 @@ export const Search = () => {
           className={styles.searchInput}
           type="text"
           placeholder="Search movies..."
+          aria-label="Search movies..."
           value={search ?? ""}
           onChange={(e) => {
             const value = e.target.value;
