@@ -3,6 +3,7 @@ import styles from "../components/MovieDetails.module.css";
 import { useParams } from "react-router-dom";
 import { GetRequest } from "../utils/httpRequest";
 import { Loader } from "../utils/Loader.jsx";
+import { getMovieImg } from "../utils/getMovieImg";
 
 export const MovieDetails = () => {
   const { id } = useParams();
@@ -21,7 +22,7 @@ export const MovieDetails = () => {
 
   if (isLoading) return <Loader />;
 
-  const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+  const imageUrl = getMovieImg(movie.poster_path, 500);
   return (
     <div className={`${styles.detailsContainer} ${styles.movieDetails}`}>
       <img
