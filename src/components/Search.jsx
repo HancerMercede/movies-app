@@ -1,10 +1,10 @@
 import styles from "./Search.module.css";
 import { SearchIcon } from "../utils/SearchIcon";
 import { useNavigate } from "react-router-dom";
-import { useQuery } from "../hooks/useQuery";
+import { useSearchParams } from "react-router-dom";
 
 export const Search = () => {
-  const query = useQuery();
+  const [query] = useSearchParams();
   const search = query.get("search");
 
   const history = useNavigate();

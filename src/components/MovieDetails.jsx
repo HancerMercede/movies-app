@@ -1,4 +1,3 @@
-// import { useEffect, useState } from "react";
 import styles from "../components/MovieDetails.module.css";
 import { useParams } from "react-router-dom";
 import { GetRequest } from "../utils/httpRequest";
@@ -12,19 +11,6 @@ export const MovieDetails = () => {
     queryKey: ["movieDetails", id],
     queryFn: () => GetRequest(`/movie/${id}`),
   });
-
-  // const [movie, setMovie] = useState(null);
-  // const [isLoading, setIsLoading] = useState(true);
-
-  // useEffect(() => {
-  //   setIsLoading(true);
-  //   GetRequest(`/movie/${id}`)
-  //     .then((data) => {
-  //       setMovie(data);
-  //       setIsLoading(false);
-  //     })
-  //     .catch((err) => console.log(err.message));
-  // }, [id]);
 
   if (isLoading) return <Loader />;
 
