@@ -4,10 +4,10 @@ import { GetRequest } from "../utils/httpRequest";
 export const useQuery = (search) => {
   const result = useInfiniteQuery(
     ["movies", search],
-    () => {
+    ({ pageParam = 1 }) => {
       const searchUrl = search
-        ? "/search/movie?query=" + search + "&page=" + 1
-        : "/discover/movie?page=" + 1;
+        ? "/search/movie?query=" + search + "&page=" + pageParam
+        : "/discover/movie?page=" + pageParam;
       return GetRequest(searchUrl);
     },
     {
