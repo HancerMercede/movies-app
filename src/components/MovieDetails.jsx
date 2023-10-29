@@ -23,6 +23,7 @@ export const MovieDetails = () => {
   if (isLoading) return <Loader />;
 
   const imageUrl = getMovieImg(movie.poster_path, 500);
+
   return (
     <div className={`${styles.detailsContainer} ${styles.movieDetails}`}>
       <img

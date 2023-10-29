@@ -25,6 +25,7 @@ export const Search = () => {
             const value = e.target.value;
             history("/?search=" + value);
           }}
+          onKeyDown={(e) => e.target.value}
         />
         <button className={styles.searchButton} type="submit">
           <SearchIcon />

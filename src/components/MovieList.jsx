@@ -29,6 +29,7 @@ export const MovieList = ({ search }) => {
   }, [search, page]);
 
   if (!isLoading && movies.length === 0) return <Empty />;
+
   return (
     <>
       <InfiniteScroll
