@@ -45,7 +45,6 @@ export const MovieDetails = () => {
                 <strong>Genders: </strong>
               </p>
             )}
-            ;
           </p>
         }
         <p>
