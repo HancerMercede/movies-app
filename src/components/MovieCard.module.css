@@ -17,6 +17,10 @@
     transform: scale(1.05, 1.05);
 }
 
+.title {
+    padding: 10px;
+}
+
 @media (min-width: 560px) {
     .MovieCardImage {
         width: 100%;

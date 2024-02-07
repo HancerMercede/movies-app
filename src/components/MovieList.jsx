@@ -1,12 +1,12 @@
 import { MovieCard } from "./MovieCard";
 import "../components/MovieList.css";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { GetRequest } from "../utils/httpRequest";
 import { Loader } from "../utils/Loader";
 import { Empty } from "../components/Empty";
 import Proptypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
+import "animate.css";
 
 export const MovieList = ({ search }) => {
   const [movies, setMovies] = useState([]);
@@ -39,7 +39,7 @@ export const MovieList = ({ search }) => {
         loader={<Loader />}
       >
         <div>
-          <ul className="container">
+          <ul className="container animate__animated animate__fadeIn">
             {movies.map((movie) => (
               <MovieCard key={movie.id} movie={movie} />
             ))}

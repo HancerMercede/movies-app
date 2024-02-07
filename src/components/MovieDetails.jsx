@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { GetRequest } from "../utils/httpRequest";
 import { Loader } from "../utils/Loader.jsx";
 import { getMovieImg } from "../utils/getMovieImg";
+import "animate.css";
 
 export const MovieDetails = () => {
   const { id } = useParams();
@@ -25,7 +26,9 @@ export const MovieDetails = () => {
   const imageUrl = getMovieImg(movie.poster_path, 500);
 
   return (
-    <div className={`${styles.detailsContainer} ${styles.movieDetails}`}>
+    <div
+      className={`${styles.detailsContainer} ${styles.movieDetails} animate__animated animate__fadeIn`}
+    >
       <img
         className={`${styles.detailsImage}  ${styles.col}`}
         src={imageUrl}

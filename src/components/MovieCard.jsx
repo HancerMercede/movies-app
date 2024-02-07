@@ -16,7 +16,7 @@ export const MovieCard = ({ movie }) => {
           className={styles.MovieCardImage}
         />
       </Link>
-      <div>
+      <div className={styles.title}>
         <strong>{movie.title}</strong>
       </div>
     </li>
