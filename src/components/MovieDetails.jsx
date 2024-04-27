@@ -7,6 +7,8 @@ import { useQuery } from "@tanstack/react-query";
 
 export const MovieDetails = () => {
   const { id } = useParams();
+
+  // data have an alias as movie
   const { data: movie, isLoading } = useQuery({
     queryKey: ["movieDetails", id],
     queryFn: () => GetRequest(`/movie/${id}`),
@@ -15,6 +17,7 @@ export const MovieDetails = () => {
   if (isLoading) return <Loader />;
 
   const imageUrl = getMovieImg(movie.poster_path, 500);
+
   return (
     <div className={`${styles.detailsContainer} ${styles.movieDetails}`}>
       <img
@@ -22,13 +25,13 @@ export const MovieDetails = () => {
         src={imageUrl}
         alt={movie.title}
       />
-      <div className={styles.col}>
+      <div className={`${styles.col}`}>
         <p>
           <b>Title: </b> {movie.title}
         </p>
         {
           <p>
-            <strong>Genres:</strong>{" "}
+            <strong>Genres:</strong>
             {movie ? (
               movie.genres.map((g) => g.name).join(", ")
             ) : (

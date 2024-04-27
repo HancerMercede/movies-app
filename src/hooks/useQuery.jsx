@@ -13,7 +13,7 @@ export const useQuery = (search) => {
     {
       getNextPageParam: (lastPage) => {
         if (lastPage.page === lastPage.total_pages) return false;
-        return lastPage + 1;
+        return lastPage.page + 1;
       },
     }
   );
