@@ -4,7 +4,7 @@ import { Loader } from "../utils/Loader";
 import { Empty } from "../components/Empty";
 import Proptypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
-
+import "animate.css";
 import { useQuery } from "../hooks/useQuery";
 
 export const MovieList = ({ search }) => {
@@ -20,7 +20,7 @@ export const MovieList = ({ search }) => {
         loader={<Loader />}
       >
         <div>
-          <ul className="container">
+          <ul className="container animate__animated animate__fadeIn">
             {movies.map((movie) => (
               <MovieCard key={movie.id} movie={movie} />
             ))}
