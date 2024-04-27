@@ -7,7 +7,7 @@ import "animate.css";
 export const MovieCard = ({ movie }) => {
   const imageUrl = getMovieImg(movie.poster_path, 300);
   return (
-    <li className={`${styles.MovieCard} animate__animated animate__fadeIn`}>
+    <li className={styles.MovieCard}>
       <Link to={`/movies/${movie.id}`}>
         <img
           width={230}

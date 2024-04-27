@@ -4,6 +4,7 @@ import { GetRequest } from "../utils/httpRequest";
 import { Loader } from "../utils/Loader.jsx";
 import { getMovieImg } from "../utils/getMovieImg";
 import { useQuery } from "@tanstack/react-query";
+import "animate.css";
 
 export const MovieDetails = () => {
   const { id } = useParams();
@@ -19,7 +20,9 @@ export const MovieDetails = () => {
   const imageUrl = getMovieImg(movie.poster_path, 500);
 
   return (
-    <div className={`${styles.detailsContainer} ${styles.movieDetails}`}>
+    <div
+      className={`${styles.detailsContainer} ${styles.movieDetails} animate__animated animate__fadeIn`}
+    >
       <img
         className={`${styles.detailsImage}  ${styles.col}`}
         src={imageUrl}
@@ -31,7 +34,7 @@ export const MovieDetails = () => {
         </p>
         {
           <p>
-            <strong>Genres:</strong>
+            <strong>Genres: </strong>
             {movie ? (
               movie.genres.map((g) => g.name).join(", ")
             ) : (
@@ -39,7 +42,6 @@ export const MovieDetails = () => {
                 <strong>Genders: </strong>
               </p>
             )}
-            ;
           </p>
         }
         <p>
@@ -56,6 +58,19 @@ export const MovieDetails = () => {
           <strong>Popularity: </strong>
           {movie.popularity}
         </p>
+
+        {
+          <p>
+            <strong>Countries: </strong>
+            {movie ? (
+              movie.production_countries.map((c) => c.name).join(", ")
+            ) : (
+              <p>
+                <strong>Countries: </strong>
+              </p>
+            )}
+          </p>
+        }
       </div>
     </div>
   );
