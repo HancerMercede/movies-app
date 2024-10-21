@@ -3,7 +3,6 @@ import Proptypes from "prop-types";
 import { Link } from "react-router-dom";
 import { getMovieImg } from "../utils/getMovieImg";
 
-
 export const MovieCard = ({ movie }) => {
   const imageUrl = getMovieImg(movie.poster_path, 300);
   return (
