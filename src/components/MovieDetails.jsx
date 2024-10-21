@@ -34,7 +34,7 @@ export const MovieDetails = () => {
         </p>
         {
           <p>
-            <strong>Genres: </strong>
+            <strong>Genres:</strong>
             {movie ? (
               movie.genres.map((g) => g.name).join(", ")
             ) : (
