@@ -1,7 +1,7 @@
 import { MovieCard } from "./MovieCard";
-import "../components/MovieList.css";
+import "./MovieList.css";
 import { Loader } from "../utils/Loader";
-import { Empty } from "../components/Empty";
+import { Empty } from "./Empty.jsx";
 import Proptypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
 import "animate.css";
