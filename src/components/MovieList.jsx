@@ -1,6 +1,6 @@
 import { MovieCard } from "./MovieCard";
 import "./MovieList.css";
-import { Loader } from "../utils/Loader";
+import { LoaderComponent } from "../utils/loaderComponent.jsx";
 import { Empty } from "./Empty";
 import Proptypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -17,7 +17,7 @@ export const MovieList = ({ search }) => {
         dataLength={movies.length}
         hasMore={hasNextPage || isLoading}
         next={() => fetchNextPage()}
-        loader={<Loader />}
+        loader={<LoaderComponent />}
       >
         <div>
           <ul className="container animate__animated animate__fadeIn">
