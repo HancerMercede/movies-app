@@ -1,5 +1,5 @@
 import { ImSpinner9 } from "react-icons/im";
-import styles from "../utils/Loader.module.css";
+import styles from "./Loader.module.css";
 
 export const Loader = () => {
   return (
