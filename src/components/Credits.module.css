@@ -1,0 +1,65 @@
+.credits {
+    padding: 20px;
+    margin: 0 auto;
+    width: 1100px;
+}
+
+.castSection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: end;
+    justify-content: center;
+    gap: 0.7rem;
+}
+
+@media (max-width: 600px) {
+    .credits {
+        width: inherit;
+    }
+
+    .castCard {
+        max-width: 100px;
+    }
+}
+
+.sectionTitle {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    color: rgba(255, 255, 255, 0.87);
+}
+
+.castCard {
+    max-width: 150px;
+    margin: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.castCard:hover {
+    transform: scale(1.05);
+}
+
+.profileImage {
+    border-radius: 8px;
+    height: 185px;
+    width: 125px;
+}
+
+.crewSection {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+    font-family: "Poppins", sans-serif;
+}
+
+.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 20px 0;
+    text-align: center;
+}
