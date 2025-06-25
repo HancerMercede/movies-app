@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import PropTypes from "prop-types";
 import styles from "./NearbyTheaters.module.css";
@@ -244,7 +244,7 @@ export const NearbyTheaters = () => {
           setTheaters(dummyTheaters);
         }
       });
-  }, [location, mapReady]);
+  }, [location, mapReady, calculateDistance]);
 
   // Convert degrees to radians
   const deg2rad = (deg) => {
