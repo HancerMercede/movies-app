@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import PropTypes from "prop-types";
 import styles from "./NearbyTheaters.module.css";
@@ -97,22 +97,21 @@ export const NearbyTheaters = () => {
   }, []);
 
   // Calculate distance between two points using Haversine formula
-  const calculateDistance = useCallback(() => {
-    (lat1, lon1, lat2, lon2) => {
-      const R = 6371; // Radius of the earth in km
-      const dLat = deg2rad(lat2 - lat1);
-      const dLon = deg2rad(lon2 - lon1);
-      const a =
-        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-        Math.cos(deg2rad(lat1)) *
-          Math.cos(deg2rad(lat2)) *
-          Math.sin(dLon / 2) *
-          Math.sin(dLon / 2);
-      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-      const d = R * c; // Distance in km
-      return d;
-    };
+  const calculateDistance = useCallback((lat1, lon1, lat2, lon2) => {
+    const R = 6371; // Radius of the earth in km
+    const dLat = deg2rad(lat2 - lat1);
+    const dLon = deg2rad(lon2 - lon1);
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(deg2rad(lat1)) *
+        Math.cos(deg2rad(lat2)) *
+        Math.sin(dLon / 2) *
+        Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    const d = R * c; // Distance in km
+    return d;
   }, []);
+
   // Find nearby theaters using Overpass API
   useEffect(() => {
     if (!location || !mapReady) return;
@@ -169,7 +168,7 @@ export const NearbyTheaters = () => {
               lat,
               lng
             );
-
+            console.log(distance);
             // Extract theater information
             const name =
               element.tags && element.tags.name
@@ -190,7 +189,7 @@ export const NearbyTheaters = () => {
               name: name,
               address: address,
               position: theaterLocation,
-              distance: distance.toFixed(2),
+              distance: (distance ?? 0).toFixed(2),
             };
           });
 
@@ -245,7 +244,7 @@ export const NearbyTheaters = () => {
           setTheaters(dummyTheaters);
         }
       });
-  }, [location, mapReady, calculateDistance]);
+  }, [location, mapReady]);
 
   // Convert degrees to radians
   const deg2rad = (deg) => {
