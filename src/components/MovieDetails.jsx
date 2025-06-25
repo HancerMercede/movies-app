@@ -5,6 +5,7 @@ import { LoaderComponent } from "../utils/loaderComponent.jsx";
 import { getMovieImg } from "../utils/getMovieImg";
 import { useQuery } from "@tanstack/react-query";
 import { Credits } from "./Credits";
+import { MovieTrailer } from "./MovieTrailer";
 
 export const MovieDetails = () => {
   const { id } = useParams();
@@ -74,6 +75,7 @@ export const MovieDetails = () => {
           }
         </div>
       </div>
+      <MovieTrailer movieId={id} />
       <Credits movieId={id} />
     </>
   );
