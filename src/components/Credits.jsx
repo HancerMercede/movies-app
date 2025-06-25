@@ -23,17 +23,7 @@ export const Credits = ({ movieId }) => {
       </div>
     );
 
-  const { cast, crew } = data || { cast: [], crew: [] };
-  const keyCrew = crew.filter((c) =>
-    [
-      "Director",
-      "Producer",
-      "Executive Producer",
-      "Screenplay",
-      "Writer",
-      "Music",
-    ].includes(c.job)
-  );
+  const { cast } = data || { cast: [], crew: [] };
 
   return (
     <section className={`${styles.credits} animate__animated animate__fadeIn`}>
@@ -53,15 +43,6 @@ export const Credits = ({ movieId }) => {
           </div>
         ))}
       </div>
-
-      {/* <h2 className={styles.sectionTitle}>Crew</h2>
-            <ul className={styles.crewSection}>
-                {keyCrew.map(member => (
-                    <li key={member.credit_id}>
-                        <strong>{member.job}:</strong> {member.name}
-                    </li>
-                ))}
-            </ul> */}
     </section>
   );
 };
