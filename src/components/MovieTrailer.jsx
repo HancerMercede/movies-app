@@ -1,20 +1,17 @@
 import PropTypes from "prop-types";
 import { useQuery } from "@tanstack/react-query";
-import { GetRequest } from "../utils/httpRequest.jsx";
+import { fetchTrailers } from "../utils/FetchTrailers.js";
 import { LoaderComponent } from "../utils/loaderComponent.jsx";
 import styles from "./MovieTrailer.module.css";
 import "animate.css";
 
-const fetchTrailers = (movieId) => {
-  return GetRequest(`/movie/${movieId}/videos`);
-};
-
 export const MovieTrailer = ({ movieId }) => {
   const { data, isLoading, isError } = useQuery(["trailers", movieId], () =>
-    fetchTrailers(movieId)
+    fetchTrailers(movieId),
   );
 
   if (isLoading) return <LoaderComponent />;
+
   if (isError || !data)
     return (
       <div className={styles.error}>
@@ -28,7 +25,7 @@ export const MovieTrailer = ({ movieId }) => {
       (video.type.toLowerCase() === "trailer" ||
         video.type.toLowerCase() === "teaser") &&
       video.site.toLowerCase() === "youtube" &&
-      video.official
+      video.official,
   );
 
   // If no trailers are found
@@ -45,7 +42,9 @@ export const MovieTrailer = ({ movieId }) => {
   const youtubeUrl = `https://www.youtube.com/embed/${trailer.key}`;
 
   return (
-    <section className={`${styles.trailerContainer} animate__animated animate__fadeIn`}>
+    <section
+      className={`${styles.trailerContainer} animate__animated animate__fadeIn`}
+    >
       <h2 className={styles.trailerTitle}>Official Trailer</h2>
       <div className={styles.videoWrapper}>
         <iframe
@@ -64,4 +63,3 @@ export const MovieTrailer = ({ movieId }) => {
 MovieTrailer.propTypes = {
   movieId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
-
